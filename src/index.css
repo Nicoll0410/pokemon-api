@@ -1,0 +1,654 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+/* Definición de variables de color */
+:root {
+	--color-fire: #ff7402; /* Color fuego */
+	--color-grass: #9bcc50; /* Color hierba */
+	--color-steel: #9eb7b8; /* Color acero */
+	--color-water: #4592c4; /* Color agua */
+	--color-psychic: #f366b9; /* Color psíquico */
+	--color-ground: #ab9842; /* Color tierra */
+	--color-ice: #51c4e7; /* Color hielo */
+	--color-flying: #3dc7ef; /* Color volador */
+	--color-ghost: #4d5b64; /* Color fantasma */
+	--color-normal: #a4acaf; /* Color normal */
+	--color-poison: #7e0058; /* Color veneno */
+	--color-rock: #a38c21; /* Color roca */
+	--color-fighting: #d56723; /* Color lucha */
+	--color-dark: #707070; /* Color oscuro */
+	--color-bug: #729f3f; /* Color bicho */
+	--color-dragon: linear-gradient(180deg, #53a4cf 50%, #f16e57 50%); /* Color dragón */
+	--color-electric: #bba909; /* Color eléctrico */
+	--color-fairy: #fdb9e9; /* Color hada */
+	--color-shadow: #7b62a3; /* Color sombra */
+	--color-unknow: #757575; /* Color desconocido */
+
+	--color1: #843802; /* Color primario */
+	--color2: #CE8E47; /* Color secundario */
+	--color3: #B46C22; /* Color terciario */
+	--color4: #ECD1A5; /* Color de fondo */
+}
+
+* {
+	margin: 0; /* Eliminar márgenes */
+	padding: 0; /* Eliminar relleno */
+	box-sizing: border-box; /* Incluir padding y border en el tamaño total */
+	font-family: 'Nanum Gothic'; /* Fuente principal */
+}
+
+body {
+	background: #eddede; /* Color de fondo */
+	background: -webkit-linear-gradient(to right, #ECD1A5, #ECD1A5); /* Gradiente para navegadores WebKit */
+	background: linear-gradient(to right, #ECD1A5, #ECD1A5); /* Gradiente estándar */
+}
+
+/* Globales */
+.container {
+	max-width: 1440px; /* Ancho máximo del contenedor */
+	margin: 0 auto; /* Centrar el contenedor */
+}
+
+/* Header */
+header {
+	display: flex; /* Usar flexbox */
+	align-items: center; /* Alinear elementos verticalmente */
+	justify-content: space-between; /* Espacio entre elementos */
+	padding: 40px 0; /* Relleno superior e inferior */
+}
+
+.logo img {
+	width: 150px; /* Ancho de la imagen del logo */
+}
+
+header form {
+	display: flex; /* Usar flexbox para el formulario */
+	align-items: center; /* Alinear elementos verticalmente */
+	gap: 15px; /* Espacio entre elementos */
+}
+
+.form-group {
+	display: flex; /* Usar flexbox para el grupo de formulario */
+	align-items: center; /* Alinear elementos verticalmente */
+	gap: 10px; /* Espacio entre elementos */
+	background-color: #fff; /* Color de fondo blanco */
+	border: 3px solid var(--color1); /* Borde con color primario */
+	padding: 15px 20px; /* Relleno */
+	border-radius: 25px; /* Bordes redondeados */
+}
+
+.form-group input {
+	background: #fff; /* Color de fondo blanco */
+	width: 300px; /* Ancho del campo de entrada */
+	border: none; /* Sin borde */
+	outline: none; /* Sin contorno */
+	font-size: 15px; /* Tamaño de fuente */
+}
+
+.icon-search {
+	width: 20px; /* Ancho del icono de búsqueda */
+	height: 20px; /* Alto del icono de búsqueda */
+	stroke: var(--color1); /* Color del icono */
+}
+
+.btn-search {
+	border: none; /* Sin borde */
+	outline: none; /* Sin contorno */
+	border-radius: 25px; /* Bordes redondeados */
+	padding: 15px 30px; /* Relleno */
+	color: #fff; /* Color del texto */
+	background-color: var(--color1); /* Color de fondo del botón */
+	font-weight: 700; /* Peso de la fuente */
+	cursor: pointer; /* Cambiar cursor al pasar sobre el botón */
+	letter-spacing: 2px; /* Espaciado entre letras */
+}
+
+.btn-search:hover {
+	background-color: var(--color2); /* Color de fondo al pasar el ratón */
+	color: #000; /* Color del texto al pasar el ratón */
+	font-weight: 700; /* Peso de la fuente al pasar el ratón */
+}
+
+/* Btn Filter */
+.container-filter {
+	display: flex; /* Usar flexbox para el contenedor de filtros */
+}
+.container-filter span {
+	font-size: 20px; /* Tamaño de fuente del texto del filtro */
+	font-weight: 600; /* Peso de la fuente */
+}
+
+.icon-filter {
+	display: flex; /* Usar flexbox para el icono de filtro */
+	align-items: center; /* Alinear elementos verticalmente */
+	gap: 15px; /* Espacio entre elementos */
+	margin-bottom: 20px; /* Margen inferior */
+	cursor: pointer; /* Cambiar cursor al pasar sobre el icono */
+}
+
+.icon-filter .icon {
+	width: 30px; /* Ancho del icono */
+	height: 30px; /* Alto del icono */
+	stroke: #000; /* Color del icono */
+}
+
+/* Card List Pokemon */
+.card-list-pokemon {
+	display: grid; /* Usar grid para la lista de cartas */
+	grid-template-columns: repeat(4, 1fr); /* Cuatro columnas de igual tamaño */
+	gap: 20px; /* Espacio entre cartas */
+}
+
+.card-pokemon {
+	cursor: pointer; /* Cambiar cursor al pasar sobre la carta */
+	text-decoration: none; /* Sin subrayado */
+}
+
+.card-img {
+	background-color: var(--color3); /* Color de fondo de la imagen de la carta */
+	display: flex; /* Usar flexbox */
+	align-items: center; /* Alinear elementos verticalmente */
+	justify-content: center; /* Centrar contenido horizontalmente */
+	border-radius: 15px; /* Bordes redondeados */
+	height: 250px; /* Altura de la imagen */
+}
+
+.card-img img {
+	width: 100%; /* Ancho completo de la imagen */
+	height: 100%; /* Alto completo de la imagen */
+}
+
+.card-info {
+	padding: 15px; /* Relleno de la información de la carta */
+}
+
+.card-info h3 {
+	color: #000; /* Color del texto del título */
+}
+
+.pokemon-id {
+	display: block; /* Mostrar como bloque */
+	color: #000; /* Color del texto */
+	margin-bottom: 15px; /* Margen inferior */
+	font-weight: 700; /* Peso de la fuente */
+}
+
+.card-types {
+	display: flex; /* Usar flexbox para los tipos de Pokémon */
+	gap: 10px; /* Espacio entre tipos */
+	margin-top: 10px; /* Margen superior */
+}
+
+.card-types span {
+	font-size: 20px; /* Tamaño de fuente de los tipos */
+	padding: 20px 30px; /* Relleno */
+	border-radius: 5px; /* Bordes redondeados */
+	color: #fff; /* Color del texto */
+	font-weight: 900; /* Peso de la fuente */
+}
+
+/* Types of Pokemon */
+.water {
+	background-color: var(--color-water); /* Color de fondo para tipo agua */
+}
+
+.grass {
+	background-color: var(--color-grass); /* Color de fondo para tipo hierba */
+}
+
+.poison {
+	background-color: var(--color-poison); /* Color de fondo para tipo veneno */
+}
+
+.fire {
+	background-color: var(--color-fire); /* Color de fondo para tipo fuego */
+}
+
+.bug {
+	background-color: var(--color-bug); /* Color de fondo para tipo bicho */
+}
+
+.dragon {
+	background: var(--color-dragon); /* Color de fondo para tipo dragón */
+}
+
+.flying {
+	background-color: var(--color-flying); /* Color de fondo para tipo volador */
+}
+
+.ground {
+	background-color: var(--color-ground); /* Color de fondo para tipo tierra */
+}
+
+.steel {
+	background-color: var(--color-steel); /* Color de fondo para tipo acero */
+}
+
+.psychic {
+	background-color: var(--color-psychic); /* Color de fondo para tipo psíquico */
+}
+
+.ice {
+	background-color: var(--color-ice); /* Color de fondo para tipo hielo */
+}
+
+.ghost {
+	background-color: var(--color-ghost); /* Color de fondo para tipo fantasma */
+}
+
+.normal {
+	background-color: var(--color-normal); /* Color de fondo para tipo normal */
+}
+
+.rock {
+	background-color: var(--color-rock); /* Color de fondo para tipo roca */
+}
+
+.electric {
+	background-color: var(--color-electric); /* Color de fondo para tipo eléctrico */
+}
+
+.fighting {
+	background-color: var(--color -fighting); /* Color de fondo para tipo lucha */
+}
+
+.fairy {
+	background-color: var(--color-fairy); /* Color de fondo para tipo hada */
+}
+
+.dark {
+	background-color: var(--color-dark); /* Color de fondo para tipo oscuro */
+}
+
+/* Container Filters */
+.container-filters {
+	display: flex; /* Usar flexbox para el contenedor de filtros */
+	justify-content: center; /* Centrar contenido horizontalmente */
+	position: fixed; /* Posición fija */
+	top: 0; /* Alinear al top */
+	left: -300px; /* Fuera de la vista inicialmente */
+	width: 250px; /* Ancho del contenedor */
+	color: #000; /* Color del texto */
+	background-color: var(--color4); /* Color de fondo */
+	font-weight: 700; /* Peso de la fuente */
+	height: 100%; /* Altura completa */
+	padding-top: 140px; /* Relleno superior */
+	transition: all 0.3s linear; /* Transición suave */
+}
+
+.container-filters.active {
+	left: 0; /* Mostrar el contenedor al activarse */
+}
+
+.filter-by-type {
+	display: flex; /* Usar flexbox para el filtro por tipo */
+	flex-direction: column; /* Dirección vertical */
+	gap: 20px; /* Espacio entre elementos */
+}
+
+.filter-by-type span {
+	font-weight: 700; /* Peso de la fuente */
+	font-size: 22px; /* Tamaño de fuente */
+}
+
+.group-type {
+	display: flex; /* Usar flexbox para el grupo de tipos */
+	flex-wrap: wrap; /* Permitir que los elementos se envuelvan */
+	gap: 10px; /* Espacio entre tipos */
+	margin-left: 15px; /* Margen izquierdo */
+}
+
+.group-type label {
+	cursor: pointer; /* Cambiar cursor al pasar sobre el label */
+}
+
+/*
+=======================================
+Styles of Pokemon Single Page
+=======================================
+*/
+
+.main-pokemon {
+	display: flex; /* Usar flexbox para la página de Pokémon */
+	flex-direction: column; /* Dirección vertical */
+	margin-top: 100px; /* Margen superior */
+	margin-bottom: 50px; /* Margen inferior */
+}
+
+.header-main-pokemon {
+	margin-top: 20px; /* Margen superior */
+	display: flex; /* Usar flexbox */
+	align-items: center; /* Alinear elementos verticalmente */
+	position: relative; /* Posición relativa */
+}
+
+.number-pokemon {
+	position: absolute; /* Posición absoluta */
+	top: -130px; /* Alinear hacia arriba */
+	left: 0; /* Alinear a la izquierda */
+	font-size: 100px; /* Tamaño de fuente */
+	font-weight: 700; /* Peso de la fuente */
+	color: #000; /* Color del texto */
+}
+
+.container-img-pokemon {
+	order: 2; /* Orden de visualización */
+	flex: 1; /* Flexibilidad */
+	padding: 25px 25px 25px 0; /* Relleno */
+	height: 400px; /* Altura del contenedor de imagen */
+}
+
+.container-img-pokemon img {
+	height: 100%; /* Altura completa de la imagen */
+	width: 100%; /* Ancho completo de la imagen */
+}
+
+.container-info-pokemon {
+	display: flex; /* Usar flexbox para la información del Pokémon */
+	flex-direction: column; /* Dirección vertical */
+	order: 1; /* Orden de visualización */
+	flex: 1; /* Flexibilidad */
+}
+
+.container-info-pokemon h1 {
+	text-align: right; /* Alinear texto a la derecha */
+	font-size: 60px; /* Tamaño de fuente */
+}
+
+.info-pokemon {
+	display: flex; /* Usar flexbox para la información del Pokémon */
+	justify-content: space-between; /* Espacio entre elementos */
+	margin-top: 20px; /* Margen superior */
+}
+
+.group-info {
+	display: flex; /* Usar flexbox para el grupo de información */
+	flex-direction: column; /* Dirección vertical */
+	gap: 10px; /* Espacio entre elementos */
+	margin-right: 190px; /* Margen derecho */
+}
+
+.group-info p {
+	font-weight: 700; /* Peso de la fuente */
+	font-size: 20px; /* Tamaño de fuente */
+}
+
+.group-info span {
+	font-weight: 700; /* Peso de la fuente */
+	font-size: 20px; /* Tamaño de fuente */
+}
+
+/* Stats */
+.container-stats {
+	display: flex; /* Usar flexbox para las estadísticas */
+	gap: 50px; /* Espacio entre estadísticas */
+	align-items: center; /* Alinear elementos verticalmente */
+}
+
+.stats {
+	display: flex; /* Usar flexbox para las estadísticas */
+	flex-direction: column; /* Dirección vertical */
+	gap: 20px; /* Espacio entre estadísticas */
+	flex: 1; /* Flexibilidad */
+	margin-top: 20px; /* Margen superior */
+}
+
+.stat-group {
+	display: flex; /* Usar flexbox para el grupo de estadísticas */
+	align-items: center; /* Alinear elementos verticalmente */
+	margin-bottom: 10px; /* Margen inferior */
+}
+
+.stat-group span {
+	flex: 20%; /* Flexibilidad del texto de la estadística */
+	font-weight: 700; /* Peso de la fuente */
+	font-size: 18px; /* Tamaño de fuente */
+}
+
+.progress-container {
+	background-color: var(--color2); /* Color de fondo de la barra */
+	border-radius: 25px; /* Bordes redondeados */
+	height: 40px; /* Altura de la barra */
+	width: 100%; /* Ancho completo del contenedor */
+	margin-left: 10px; /* Espacio entre el nombre y la barra */
+	position: relative; /* Posición relativa */
+}
+
+.progress-bar {
+	background-color: var(--color1); /* Color de la barra de progreso */
+	border-radius: 25px; /* Bordes redondeados */
+	height: 100%; /* Altura completa del contenedor */
+	transition: width 0.5s ease; /* Transición suave al llenar la barra */
+}
+
+.counter-stat {
+	position: absolute; /* Posición absoluta */
+	right: 5px; /* Ajustar según sea necesario */
+	color: #000; /* Color del texto */
+	font-weight: bold; /* Peso de la fuente */
+}
+
+/* Search Page */
+
+.p-search {
+	margin-bottom: 30px; /* Margen inferior */
+	font-size: 22px; /* Tamaño de fuente */
+}
+
+.p-search span {
+	font-weight: 700; /* Peso de la fuente */
+}
+
+/* Loader */
+
+.container-loader {
+	display: flex; /* Usar flexbox para el contenedor del loader */
+	justify-content: center; /* Centrar contenido horizontalmente */
+	margin: 200px 0; /* Margen superior e inferior */
+}
+
+.btn-evolution-card {
+	border: none; /* Sin borde */
+	padding: 20px 20px; /* Relleno */
+	background-color: var(--color1); /* Color de fondo */
+	color: #fff; /* Color del texto */
+	border-radius: 25px; /* Bordes redondeados */
+	cursor: pointer; /* Cambiar cursor al pasar sobre el botón */
+	font-weight: 900; /* Peso de la fuente */
+	font-size: 20px; /* Tamaño de fuente */
+	margin-bottom: 40px; /* Margen inferior */
+	margin-top: 40px; /* Margen superior */
+	width: 300px; /* Ancho del botón */
+	height: 70px; /* Altura del botón */
+}
+
+.btn-evolution-card:hover {
+	background-color: var(--color2); /* Color de fondo al pasar el ratón */
+	color: #000; /* Color del texto al pasar el ratón */
+	font-weight: 700; /* Peso de la fuente al pasar el ratón */
+}
+
+.card-details {
+	display: flex; /* Usar flexbox para los detalles de la carta */
+	align-items: center; /* Alinear elementos verticalmente */
+}
+
+.card-details h3 {
+	font-weight: 1000 ; /* Peso de la fuente del título */
+	font-size: 25px; /* Tamaño de fuente del título */
+	color: var(--color1); /* Color del título */
+}
+
+.card-details p {
+	font-weight: 900; /* Peso de la fuente del párrafo */
+	font-size: 20px; /* Tamaño de fuente del párrafo */
+	color: #000; /* Color del texto del párrafo */
+}
+
+.card-details img {
+	display: flex; /* Usar flexbox para la imagen */
+	align-items: center; /* Alinear elementos verticalmente */
+	justify-content: center; /* Centrar contenido horizontalmente */
+	height: 250px; /* Altura de la imagen */
+}
+
+.card-details img {
+	width: 50%; /* Ancho de la imagen */
+	height: 50%; /* Alto de la imagen */
+}
+
+/* Btn Load More */
+
+.container-btn-load-more {
+	display: flex; /* Usar flexbox para el contenedor del botón de cargar más */
+	justify-content: center; /* Centrar contenido horizontalmente */
+	margin-bottom: 20px; /* Margen inferior */
+	margin-top: 20px; /* Margen superior */
+}
+
+.btn-load-more {
+	border: none; /* Sin borde */
+	padding: 15px 40px; /* Relleno */
+	background-color: var(--color1); /* Color de fondo */
+	color: #fff; /* Color del texto */
+	border-radius: 10px; /* Bordes redondeados */
+	cursor: pointer; /* Cambiar cursor al pasar sobre el botón */
+	font-weight: 600; /* Peso de la fuente */
+}
+
+.btn-load-more:hover {
+	background-color: var(--color2); /* Color de fondo al pasar el ratón */
+	color: #000; /* Color del texto al pasar el ratón */
+	font-weight: 600; /* Peso de la fuente al pasar el ratón */
+}
+
+/* Media Queries para dispositivos móviles */
+@media (max-width: 768px) {
+	/* Globales */
+	.container {
+		padding: 0 10px; /* Relleno lateral */
+	}
+
+	/* Header */
+	header {
+		flex-direction: column; /* Dirección vertical */
+		padding: 20px 0; /* Relleno superior e inferior */
+		gap: 20px; /* Espacio entre elementos */
+	}
+
+	.logo img {
+		width: 120px; /* Ancho de la imagen del logo en móviles */
+	}
+
+	.form-group {
+		width: 100%; /* Ancho completo del grupo de formulario */
+		padding: 10px; /* Relleno */
+		border-radius: 20px; /* Bordes redondeados */
+	}
+
+	.form-group input {
+		width: 100%; /* Ancho completo del campo de entrada */
+		font-size: 14px; /* Tamaño de fuente */
+	}
+
+	.btn-search {
+		padding: 10px 20px; /* Relleno */
+	}
+
+	/* Card List Pokemon */
+	.card-list-pokemon {
+		grid-template-columns: repeat(2, 1fr); /* Dos columnas en móviles */
+		gap: 10px; /* Espacio entre cartas */
+	}
+
+	.card-img {
+		height: 180px; /* Altura de la imagen de la carta en móviles */
+	}
+
+	.card-info h3 {
+		font-size: 16px; /* Tamaño de fuente del título en móviles */
+	}
+
+	.card-types span {
+		font-size: 14px; /* Tamaño de fuente de los tipos en móviles */
+		padding: 8px 15px; /* Relleno */
+	}
+
+	.container-filters {
+		width: 100%; /* Ancho completo del contenedor de filtros en móviles */
+		padding-top: 80px; /* Relleno superior reducido */
+	}
+
+	.group-type {
+		justify-content: center; /* Centrar elementos en móviles */
+	}
+
+	/* Pokemon Single Page */
+	.main-pokemon {
+		margin-top: 50px; /* Reducir margen superior en móviles */
+		margin-bottom: 20px; /* Reducir margen inferior en móviles */
+	}
+
+	.header-main-pokemon {
+		flex-direction: column; /* Cambiar a dirección vertical */
+		align-items: center; /* Centrar elementos */
+	}
+
+	.number-pokemon {
+		font-size: 60px; /* Reducir tamaño de fuente en móviles */
+		top: -80px; /* Ajustar posición en móviles */
+	}
+
+	.container-img-pokemon {
+		padding: 15px; /* Reducir relleno en móviles */
+		height: auto; /* Altura automática para adaptarse a la imagen */
+	}
+
+	.container-info-pokemon h1 {
+		font-size: 40px; /* Reducir tamaño de fuente en móviles */
+		text-align: center; /* Centrar texto en móviles */
+	}
+
+	.info-pokemon {
+		flex-direction: column; /* Cambiar a dirección vertical */
+		align-items: center; /* Centrar elementos */
+	}
+
+	.group-info {
+		margin-right: 0; /* Eliminar margen derecho en móviles */
+		text-align: center; /* Centrar texto en móviles */
+	}
+
+	.group-info p, .group-info span {
+		font-size: 18px; /* Reducir tamaño de fuente en móviles */
+	}
+
+	.container-stats {
+		flex-direction: column; /* Cambiar a dirección vertical */
+		align-items: center; /* Centrar elementos */
+	}
+
+	.stat-group {
+		width: 100%; /* Ancho completo en móviles */
+		justify-content: space-between; /* Espacio entre elementos */
+	}
+
+	.stat-group span {
+		font-size: 16px; /* Reducir tamaño de fuente en móviles */
+	}
+
+	.progress-container {
+		width: 90%; /* Ancho reducido en móviles */
+	}
+
+	.counter-stat {
+		font-size: 14px; /* Reducir tamaño de fuente en móviles */
+	}
+
+	.container-btn-load-more {
+		margin: 15px 0; /* Margen superior e inferior */
+	}
+
+	.btn-load-more {
+		padding: 10px 25px; /* Relleno del botón de cargar más en móviles */
+	}
+}
